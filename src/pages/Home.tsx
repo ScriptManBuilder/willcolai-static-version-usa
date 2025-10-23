@@ -445,7 +445,7 @@ const Home: React.FC = () => {
                 <GlobeIcon />
                 <FeatureTitle>Global Community</FeatureTitle>
                 <FeatureDescription>
-                  Join thousands of AI enthusiasts worldwide with 24/7 support and community access.
+                  Join hundreds of AI enthusiasts worldwide with 24/7 support and community access.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
