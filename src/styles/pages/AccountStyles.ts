@@ -7,7 +7,14 @@ export const AccountWrapper = styled.div`
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   
   @media (max-width: 768px) {
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding-top: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -20,6 +27,12 @@ export const AccountContent = styled.div`
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
     gap: 24px;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 16px;
+    margin-top: 16px;
   }
 `;
 
@@ -77,6 +90,17 @@ export const MainContent = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
+  
+  @media (max-width: 768px) {
+    padding: 24px;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 16px;
+    margin: 0 8px;
+    border-radius: 8px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -99,6 +123,22 @@ export const SectionTitle = styled.h2`
     height: 2px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin: 0 0 24px 0;
+    padding-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    
+    &::after {
+      width: 40px;
+    }
   }
 `;
 
@@ -143,6 +183,38 @@ export const InfoCard = styled.div`
     position: relative;
     z-index: 1;
   }
+  
+  @media (max-width: 768px) {
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    
+    p {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+  }
 `;
 
 export const InfoGrid = styled.div`
@@ -150,6 +222,18 @@ export const InfoGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
   margin: 24px 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
 `;
 
 export const InfoItem = styled.div`
@@ -171,6 +255,26 @@ export const InfoItem = styled.div`
     letter-spacing: -0.01em;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
+  
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h4 {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const LoginPromptWrapper = styled.div`
@@ -180,6 +284,11 @@ export const LoginPromptWrapper = styled.div`
   min-height: 60vh;
   padding: 20px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  @media (max-width: 480px) {
+    padding: 10px;
+    min-height: 50vh;
+  }
 `;
 
 export const LoginPromptCard = styled.div`
@@ -196,6 +305,12 @@ export const LoginPromptCard = styled.div`
   @media (max-width: 768px) {
     padding: 40px 30px;
     border-radius: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin: 0 10px;
   }
 `;
 
@@ -310,6 +425,19 @@ export const WelcomeSection = styled.div`
     background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
     pointer-events: none;
   }
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 24px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin: 0 8px 20px 8px;
+  }
 `;
 
 export const WelcomeTitle = styled.h1`
@@ -324,7 +452,13 @@ export const WelcomeTitle = styled.h1`
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   
   @media (max-width: 768px) {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    margin: 0 0 12px 0;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
   }
 `;
 
@@ -341,7 +475,12 @@ export const WelcomeSubtitle = styled.p`
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 `;
 
@@ -430,6 +569,21 @@ export const CourseCard = styled.div`
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
+  
+  @media (max-width: 768px) {
+    padding: 20px;
+    border-radius: 12px;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 10px;
+    margin: 0 4px;
+  }
 `;
 
 export const CourseCardHeader = styled.div`
@@ -458,6 +612,15 @@ export const CourseTitle = styled.h3`
   margin: 0;
   line-height: 1.2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
 `;
 
 export const CourseDescription = styled.p`
@@ -465,6 +628,17 @@ export const CourseDescription = styled.p`
   color: #4a5568;
   margin: 12px 0;
   line-height: 1.5;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    margin: 8px 0;
+    line-height: 1.4;
+  }
 `;
 
 export const CourseMeta = styled.div`
@@ -563,5 +737,356 @@ export const CourseVideo = styled.video`
   &:focus {
     outline: 2px solid #667eea;
     outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 180px;
+  }
+`;
+
+// Mobile Navigation Tabs
+export const MobileTabsWrapper = styled.div`
+  display: none;
+  
+  @media (max-width: 968px) {
+    display: block;
+    background: white;
+    border-radius: 16px;
+    padding: 8px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  @media (max-width: 480px) {
+    border-radius: 12px;
+    margin: 0 8px 20px 8px;
+    padding: 6px;
+  }
+`;
+
+export const MobileTabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  
+  @media (max-width: 480px) {
+    gap: 4px;
+  }
+`;
+
+export const MobileTab = styled.button<{ active: boolean }>`
+  padding: 12px 8px;
+  border: none;
+  border-radius: 12px;
+  background: ${props => props.active ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent'};
+  color: ${props => props.active ? 'white' : 'var(--minimal-gray-700)'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.9rem;
+  font-weight: ${props => props.active ? '600' : '500'};
+  text-align: center;
+  
+  &:hover {
+    background: ${props => props.active ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'rgba(102, 126, 234, 0.08)'};
+    color: ${props => props.active ? 'white' : 'var(--minimal-gray-900)'};
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+`;
+
+export const MobileLogoutWrapper = styled.div`
+  display: none;
+  margin-bottom: 20px;
+  
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+export const MobileLogoutButton = styled(Button)`
+  background: #ef4444 !important;
+  color: white !important;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  float: right;
+  margin-left: auto;
+  
+  &:hover {
+    background: #dc2626 !important;
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    width: 100%;
+    float: none;
+  }
+`;
+
+// Course Progress Section
+export const CourseProgressSection = styled.div`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  color: white;
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  
+  p {
+    opacity: 0.9;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+    
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+  }
+`;
+
+export const ProgressStats = styled.div`
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const ProgressStat = styled.div`
+  text-align: center;
+  
+  .number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .number {
+      font-size: 1.8rem;
+    }
+    
+    .label {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .number {
+      font-size: 1.6rem;
+    }
+    
+    .label {
+      font-size: 0.8rem;
+    }
+  }
+`;
+
+// Course List Container
+export const CoursesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+`;
+
+// Individual Course Container
+export const CourseContainer = styled.div`
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  
+  @media (max-width: 768px) {
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 480px) {
+    border-radius: 10px;
+    margin: 0 4px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+`;
+
+// Course Header
+export const CourseHeader = styled.div`
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 20px 30px;
+  color: white;
+  
+  @media (max-width: 768px) {
+    padding: 16px 20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 14px 16px;
+  }
+`;
+
+export const CourseHeaderContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+`;
+
+export const CourseHeaderLeft = styled.div`
+  .course-number {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .course-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+  }
+  
+  @media (max-width: 768px) {
+    .course-number {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+    
+    .course-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .course-number {
+      font-size: 0.8rem;
+      margin-bottom: 3px;
+    }
+    
+    .course-title {
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+  }
+`;
+
+export const CourseHeaderBadge = styled.div`
+  background: rgba(255,255,255,0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+  @media (max-width: 768px) {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    align-self: flex-end;
+  }
+`;
+
+// Course Content
+export const CourseContent = styled.div`
+  padding: 30px;
+  
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+  }
+`;
+
+export const CourseContentGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: start;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 16px;
   }
 `;

@@ -32,7 +32,23 @@ import {
   CourseDescription,
   CourseStatus,
   CourseVideoWrapper,
-  CourseVideo
+  CourseVideo,
+  MobileTabsWrapper,
+  MobileTabs,
+  MobileTab,
+  MobileLogoutWrapper,
+  MobileLogoutButton,
+  CourseProgressSection,
+  ProgressStats,
+  ProgressStat,
+  CoursesList,
+  CourseContainer,
+  CourseHeader,
+  CourseHeaderContent,
+  CourseHeaderLeft,
+  CourseHeaderBadge,
+  CourseContent,
+  CourseContentGrid
 } from '../styles/pages/AccountStyles';
 
 const Account: React.FC = () => {
@@ -241,91 +257,49 @@ const Account: React.FC = () => {
         <SectionTitle>MY AI COURSES</SectionTitle>
         
         {/* Course Progress Overview */}
-        <div style={{ 
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          borderRadius: '15px',
-          padding: '30px',
-          marginBottom: '30px',
-          color: 'white'
-        }}>
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Learning Progress</h3>
-          <p style={{ opacity: 0.9, marginBottom: '20px' }}>Continue your AI mastery journey</p>
-          <div style={{ 
-            display: 'flex', 
-            gap: '30px', 
-            flexWrap: 'wrap' 
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>{testAccountCourses.length}</div>
-              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Total Courses</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>16</div>
-              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Hours of Content</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>∞</div>
-              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Lifetime Access</div>
-            </div>
-          </div>
-        </div>
+        <CourseProgressSection>
+          <h3>Learning Progress</h3>
+          <p>Continue your AI mastery journey</p>
+          <ProgressStats>
+            <ProgressStat>
+              <div className="number">{testAccountCourses.length}</div>
+              <div className="label">Total Courses</div>
+            </ProgressStat>
+            <ProgressStat>
+              <div className="number">16</div>
+              <div className="label">Hours of Content</div>
+            </ProgressStat>
+            <ProgressStat>
+              <div className="number">∞</div>
+              <div className="label">Lifetime Access</div>
+            </ProgressStat>
+          </ProgressStats>
+        </CourseProgressSection>
 
         {/* Courses List - One per row with larger video */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+        <CoursesList>
           {testAccountCourses.map((course, index) => (
-            <div key={course.id} style={{
-              background: 'white',
-              borderRadius: '15px',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-              overflow: 'hidden',
-              border: '1px solid #e2e8f0'
-            }}>
+            <CourseContainer key={course.id}>
               {/* Course Header */}
-              <div style={{
-                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                padding: '20px 30px',
-                color: 'white'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <div style={{ 
-                      fontSize: '0.9rem', 
-                      opacity: 0.9, 
-                      marginBottom: '5px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px'
-                    }}>
+              <CourseHeader>
+                <CourseHeaderContent>
+                  <CourseHeaderLeft>
+                    <div className="course-number">
                       Course {index + 1} of {testAccountCourses.length}
                     </div>
-                    <h3 style={{ 
-                      fontSize: '1.4rem', 
-                      fontWeight: '700',
-                      margin: 0,
-                      lineHeight: '1.3'
-                    }}>
+                    <h3 className="course-title">
                       {course.title}
                     </h3>
-                  </div>
-                  <div style={{
-                    background: 'rgba(255,255,255,0.2)',
-                    padding: '8px 16px',
-                    borderRadius: '20px',
-                    fontSize: '0.9rem',
-                    fontWeight: '600'
-                  }}>
+                  </CourseHeaderLeft>
+                  <CourseHeaderBadge>
                     Available
-                  </div>
-                </div>
-              </div>
+                  </CourseHeaderBadge>
+                </CourseHeaderContent>
+              </CourseHeader>
 
               {/* Course Content */}
-              <div style={{ padding: '30px' }}>
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: '1.2fr 0.8fr', 
-                  gap: '30px',
-                  alignItems: 'start'
-                }}>
+              <CourseContent>
+                <CourseContentGrid>
                   {/* Video Section */}
                   <div>
                     {course.videos && course.videos.length > 0 && (
@@ -456,14 +430,13 @@ const Account: React.FC = () => {
                         </div>
                       </div>
 
-
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </CourseContentGrid>
+              </CourseContent>
+            </CourseContainer>
           ))}
-        </div>
+        </CoursesList>
       </div>
     );
   };
@@ -506,6 +479,30 @@ const Account: React.FC = () => {
           </WelcomeSubtitle>
         </WelcomeSection>
 
+        {/* Mobile Navigation Tabs */}
+        <MobileTabsWrapper>
+          <MobileTabs>
+            <MobileTab 
+              active={activeTab === 'profile'}
+              onClick={() => setActiveTab('profile')}
+            >
+              Profile
+            </MobileTab>
+            <MobileTab 
+              active={activeTab === 'courses'}
+              onClick={() => setActiveTab('courses')}
+            >
+              Courses
+            </MobileTab>
+            <MobileTab 
+              active={activeTab === 'orders'}
+              onClick={() => setActiveTab('orders')}
+            >
+              Orders
+            </MobileTab>
+          </MobileTabs>
+        </MobileTabsWrapper>
+
         <AccountContent>
           <Sidebar>
             <h3>Account Menu</h3>
@@ -537,6 +534,13 @@ const Account: React.FC = () => {
           </Sidebar>
 
           <MainContent>
+            {/* Mobile Logout Button */}
+            <MobileLogoutWrapper>
+              <MobileLogoutButton onClick={logout}>
+                Logout
+              </MobileLogoutButton>
+            </MobileLogoutWrapper>
+            
             {activeTab === 'profile' && renderProfileSection()}
             {activeTab === 'courses' && renderCoursesSection()}
             {activeTab === 'orders' && renderOrdersSection()}
