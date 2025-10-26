@@ -179,7 +179,7 @@ const Home: React.FC = () => {
       if (ref) observer.observe(ref);
     });
 
-    // Intersection Observer для галереи
+    // Intersection Observer для галереи (более строгие условия)
     const galleryObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -187,10 +187,10 @@ const Home: React.FC = () => {
           galleryObserver.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '200px' }
+      { threshold: 0.05, rootMargin: '100px' }
     );
 
-    // Intersection Observer для новой видео секции
+    // Intersection Observer для новой видео секции (более строгие условия)
     const videoSectionObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -198,7 +198,7 @@ const Home: React.FC = () => {
           videoSectionObserver.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '200px' }
+      { threshold: 0.05, rootMargin: '50px' }
     );
 
     if (galleryRef.current) {
@@ -352,7 +352,8 @@ const Home: React.FC = () => {
           muted 
           loop 
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/video-poster-1.jpg"
         >
           <source src="/videos/videoAI_1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -481,7 +482,8 @@ const Home: React.FC = () => {
             muted 
             loop 
             playsInline
-            preload="none"
+            preload="metadata"
+            poster="/images/video-poster-2.jpg"
           >
             <source src="/videos/videoAI_2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -564,7 +566,7 @@ const Home: React.FC = () => {
       <PhotoGallerySection ref={galleryRef}>
         {isVisible && (
           <PhotoStrip>
-            {galleryImages.map((image) => (
+            {galleryImages.slice(0, 10).map((image) => (
               <PhotoItem key={image.id} className={`photo-${image.type}`}>
                 <LazyImage
                   src={image.src}

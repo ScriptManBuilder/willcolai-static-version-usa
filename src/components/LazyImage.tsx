@@ -85,8 +85,8 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className }) => {
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px'
+        threshold: 0.01,
+        rootMargin: '150px'
       }
     );
 
@@ -98,10 +98,14 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className }) => {
   }, []);
 
   const handleLoad = () => {
-    setIsLoaded(true);
+    // Небольшая задержка для плавности
+    requestAnimationFrame(() => {
+      setIsLoaded(true);
+    });
   };
 
   const handleError = () => {
+    console.warn(`Failed to load image: ${src}`);
     setIsLoaded(true); // Показываем даже если ошибка загрузки
   };
 
@@ -116,6 +120,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className }) => {
           onLoad={handleLoad}
           onError={handleError}
           loading="lazy"
+          decoding="async"
         />
       )}
     </ImageWrapper>
