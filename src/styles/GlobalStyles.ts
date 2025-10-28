@@ -76,7 +76,13 @@ export const GlobalStyles = createGlobalStyle`
   /* Для всех Retina дисплеев (2x и выше) */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     
-    /* Базовая GPU оптимизация ТОЛЬКО для изображений и видео */
+    /* КРИТИЧНО: Отключаем backdrop-filter для ВСЕХ Retina (включая MacBook) */
+    * {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Базовая GPU оптимизация для изображений и видео */
     img, video {
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
@@ -84,18 +90,64 @@ export const GlobalStyles = createGlobalStyle`
       backface-visibility: hidden;
     }
     
-    /* Для ОЧЕНЬ БОЛЬШИХ Retina экранов (4K и выше) */
-    @media (min-width: 2400px) and (min-height: 1400px) {
+    /* Упрощаем drop-shadow на галерее (тяжёлый эффект) */
+    [class*="Photo"] {
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) !important;
+    }
+    
+    /* 🚀 ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ ДЛЯ MACBOOK: */
+    
+    /* Упрощаем box-shadow - они очень тяжёлые на Retina */
+    * {
+      box-shadow: none !important;
+    }
+    
+    /* Возвращаем только самые лёгкие тени для UI */
+    button, [role="button"], [class*="Button"] {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Оптимизируем анимации - используем только transform */
+    [class*="Carousel"], [class*="Scroll"], [class*="Slide"] {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    
+    /* Отключаем тяжёлые hover эффекты */
+    *:hover {
+      filter: none !important;
+      text-shadow: none !important;
+    }
+    
+    /* Упрощаем градиенты */
+    * {
+      background-attachment: scroll !important;
+    }
+  }
+  
+  /* 🍎 СПЕЦИАЛЬНЫЕ ОПТИМИЗАЦИИ ДЛЯ SAFARI (MacBook) */
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    @media (-webkit-min-device-pixel-ratio: 2) {
       
-      /* Отключаем ТОЛЬКО backdrop-filter (самый тяжёлый эффект) */
+      /* Принудительно отключаем webkit-backdrop-filter в Safari */
       * {
-        backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
       }
       
-      /* Упрощаем drop-shadow на галерее (тяжёлый эффект) */
-      [class*="Photo"] {
-        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) !important;
+      /* Оптимизируем скролл в Safari */
+      * {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: auto !important;
+      }
+      
+      /* Отключаем аппаратное ускорение для text-shadow (лагает в Safari) */
+      * {
+        text-shadow: none !important;
+      }
+      
+      /* Возвращаем только лёгкие тени для заголовков */
+      h1, h2, h3, [class*="Title"] {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
       }
     }
   }
