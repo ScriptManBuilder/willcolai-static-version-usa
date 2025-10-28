@@ -232,19 +232,19 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({ progress }) => {
   // Welcome messages in English only
   const welcomeMessages = [
     {
-      title: 'Welcome to Williams AI Academy! 🎓',
+      title: 'Welcome to Williams AI Academy!',
       subtitle: 'Empowering the next generation of AI innovators'
     },
     {
-      title: 'Welcome! �',
+      title: 'Welcome!',
       subtitle: 'Your journey into AI excellence begins here'
     },
     {
-      title: 'Discover AI Excellence ✨',
+      title: 'Discover AI Excellence',
       subtitle: 'Innovation meets education at Williams Academy'
     },
     {
-      title: 'Welcome Aboard! 🚀',
+      title: 'Welcome Aboard!',
       subtitle: 'Join us in shaping tomorrow\'s technology'
     }
   ];
