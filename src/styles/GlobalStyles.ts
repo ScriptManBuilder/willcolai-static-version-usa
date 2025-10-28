@@ -68,6 +68,71 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 16px; /* Prevent zoom on iOS */
     }
   }
+  
+  /* ========================================
+     RETINA / HiDPI ОПТИМИЗАЦИИ (МЯГКИЕ)
+     ======================================== */
+  
+  /* Для всех Retina дисплеев (2x и выше) */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    
+    /* Базовая GPU оптимизация ТОЛЬКО для изображений и видео */
+    img, video {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    /* Для ОЧЕНЬ БОЛЬШИХ Retina экранов (4K и выше) */
+    @media (min-width: 2400px) and (min-height: 1400px) {
+      
+      /* Отключаем ТОЛЬКО backdrop-filter (самый тяжёлый эффект) */
+      * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      
+      /* Упрощаем drop-shadow на галерее (тяжёлый эффект) */
+      [class*="Photo"] {
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) !important;
+      }
+    }
+  }
+  
+  /* Уважение к настройкам пользователя */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Глобальная оптимизация скролла для всех экранов */
+  * {
+    /* Улучшаем композитинг слоёв */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Оптимизация для высоких DPI без изменения поведения */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+      /* Включаем аппаратное ускорение для скролла */
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Оптимизация для анимированных элементов */
+    img, video, [class*="animate"] {
+      /* Принудительно включаем GPU слой */
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  /* ======================================== */
 
   a {
     text-decoration: none;

@@ -27,6 +27,18 @@ const ImageWrapper = styled.div<{ isLoaded: boolean }>`
     filter: brightness(1.1) contrast(1.3) saturate(1.3);
     transform: scale(1.1) rotate(2deg);
   }
+  
+  /* Мягкая оптимизация только для очень больших экранов */
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 2400px) {
+    img {
+      /* Упрощаем только фильтры, оставляем анимации */
+      filter: brightness(0.9) contrast(1.05) saturate(1.05);
+    }
+    
+    &:hover img {
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+    }
+  }
 `;
 
 const Placeholder = styled.div<{ isVisible: boolean }>`
