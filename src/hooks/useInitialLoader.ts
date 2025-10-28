@@ -19,7 +19,7 @@ export const useInitialLoader = () => {
     }
 
     const startTime = Date.now();
-    const minLoadingTime = 3000; // Минимум 3 секунды (для UX)
+    const minLoadingTime = 5000; // Минимум 5 секунд (для полной загрузки home page)
     const maxLoadingTime = 12000; // Максимум 12 секунд (защита от зависания)
     
     let isFinished = false;
@@ -56,7 +56,7 @@ export const useInitialLoader = () => {
       const resourcesReady = checkResourcesLoaded();
 
       // Условие завершения:
-      // 1. Прошло минимум 3 секунды И ресурсы загружены
+      // 1. Прошло минимум 5 секунд И ресурсы загружены
       // ИЛИ
       // 2. Прошло максимум 12 секунд (принудительно)
       if ((elapsed >= minLoadingTime && resourcesReady) || elapsed >= maxLoadingTime) {
