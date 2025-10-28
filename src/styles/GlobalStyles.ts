@@ -119,6 +119,33 @@ export const GlobalStyles = createGlobalStyle`
       text-shadow: none !important;
     }
     
+    /* � КРИТИЧНО для MacBook: убираем автоанимации */
+    * {
+      animation-play-state: paused !important;
+    }
+    
+    /* Отключаем автоматические карусели (setInterval) */
+    [class*="Slide"], [class*="Carousel"] {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    /* Упрощаем градиенты до solid цветов */
+    * {
+      background-image: none !important;
+    }
+    
+    /* Возвращаем только основные цвета */
+    [class*="Button"], button {
+      background: #667eea !important;
+    }
+    
+    /* Отключаем автоматические карусели (setInterval) */
+    [class*="Slide"], [class*="Carousel"] {
+      animation: none !important;
+      transition: none !important;
+    }
+    
     /* Упрощаем градиенты */
     * {
       background-attachment: scroll !important;
