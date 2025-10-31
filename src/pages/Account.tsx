@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Button } from '../styles/GlobalStyles';
 import { useAuth } from '../contexts/AuthContext';
@@ -54,6 +54,9 @@ import {
 const Account: React.FC = () => {
   const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('profile');
+  const [coursesPerPage] = useState(3); // Показываем только 3 курса за раз
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loadedVideos, setLoadedVideos] = useState<Set<string>>(new Set()); // Отслеживаем загруженные видео
 
   // Дополнительная защита от скачивания видео
   useEffect(() => {
@@ -180,6 +183,39 @@ const Account: React.FC = () => {
     }
   ];
 
+  // 🚀 ОПТИМИЗАЦИИ ДЛЯ БЫСТРОЙ ЗАГРУЗКИ КУРСОВ:
+
+  // Мемоизируем курсы для текущей страницы
+  const paginatedCourses = useMemo(() => {
+    const startIndex = (currentPage - 1) * coursesPerPage;
+    const endIndex = startIndex + coursesPerPage;
+    return testAccountCourses.slice(startIndex, endIndex);
+  }, [currentPage, coursesPerPage]);
+
+  // Общее количество страниц
+  const totalPages = useMemo(() => {
+    return Math.ceil(testAccountCourses.length / coursesPerPage);
+  }, [coursesPerPage]);
+
+  // Функция для загрузки видео по требованию
+  const handleVideoLoad = useCallback((videoSrc: string) => {
+    setLoadedVideos(prev => {
+      const newSet = new Set(prev);
+      newSet.add(videoSrc);
+      return newSet;
+    });
+  }, []);
+
+  // Функция для смены страницы
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    // Скроллим к началу списка курсов
+    const coursesSection = document.querySelector('[data-courses-list]');
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
+
   const renderProfileSection = () => (
     <div>
       <SectionTitle>PROFILE INFORMATION</SectionTitle>
@@ -276,16 +312,59 @@ const Account: React.FC = () => {
           </ProgressStats>
         </CourseProgressSection>
 
-        {/* Courses List - One per row with larger video */}
-        <CoursesList>
-          {testAccountCourses.map((course, index) => (
-            <CourseContainer key={course.id}>
-              {/* Course Header */}
-              <CourseHeader>
-                <CourseHeaderContent>
-                  <CourseHeaderLeft>
-                    <div className="course-number">
-                      Course {index + 1} of {testAccountCourses.length}
+        {/* ⚡ ОПТИМИЗИРОВАННЫЙ СПИСОК КУРСОВ - Показываем только {coursesPerPage} за раз */}
+        <div style={{ 
+          marginBottom: '20px', 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center',
+          background: '#f8fafc',
+          padding: '15px 20px',
+          borderRadius: '12px',
+          border: '1px solid #e2e8f0'
+        }}>
+          <div style={{ fontSize: '1rem', fontWeight: '600', color: '#2d3748' }}>
+            📚 Showing {coursesPerPage} courses per page • Page {currentPage} of {totalPages}
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Button 
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              style={{ 
+                padding: '8px 16px', 
+                fontSize: '0.9rem',
+                opacity: currentPage === 1 ? 0.5 : 1,
+                cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
+              }}
+            >
+              ← Previous
+            </Button>
+            <Button 
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              style={{ 
+                padding: '8px 16px', 
+                fontSize: '0.9rem',
+                opacity: currentPage === totalPages ? 0.5 : 1,
+                cursor: currentPage === totalPages ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Next →
+            </Button>
+          </div>
+        </div>
+
+        <CoursesList data-courses-list>
+          {paginatedCourses.map((course, index) => {
+            const realIndex = (currentPage - 1) * coursesPerPage + index;
+            return (
+              <CourseContainer key={course.id}>
+                {/* Course Header */}
+                <CourseHeader>
+                  <CourseHeaderContent>
+                    <CourseHeaderLeft>
+                      <div className="course-number">
+                        Course {realIndex + 1} of {testAccountCourses.length}
                     </div>
                     <h3 className="course-title">
                       {course.title}
@@ -328,11 +407,14 @@ const Account: React.FC = () => {
                                 Video {videoIndex + 1} of {course.videos.length}
                               </div>
                             )}
+                            {/* ⚡ ОПТИМИЗИРОВАННОЕ ВИДЕО - Lazy Loading */}
                             <CourseVideo 
                               controls
+                              preload="none"
                               controlsList="nodownload noremoteplayback"
                               disablePictureInPicture
                               onContextMenu={(e) => e.preventDefault()}
+                              onLoadStart={() => handleVideoLoad(videoSrc)}
                               style={{
                                 width: '100%',
                                 height: '350px',
@@ -435,8 +517,35 @@ const Account: React.FC = () => {
                 </CourseContentGrid>
               </CourseContent>
             </CourseContainer>
-          ))}
+            );
+          })}
         </CoursesList>
+
+        {/* 📄 ПАГИНАЦИЯ ВНИЗУ */}
+        <div style={{ 
+          marginTop: '30px',
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '15px',
+          flexWrap: 'wrap'
+        }}>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+            <Button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              style={{
+                padding: '10px 16px',
+                fontSize: '0.95rem',
+                fontWeight: page === currentPage ? '700' : '500',
+                background: page === currentPage ? '#667eea' : '#f8fafc',
+                color: page === currentPage ? 'white' : '#4a5568',
+                border: page === currentPage ? 'none' : '1px solid #e2e8f0'
+              }}
+            >
+              {page}
+            </Button>
+          ))}
+        </div>
       </div>
     );
   };
