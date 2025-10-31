@@ -1278,7 +1278,7 @@ export const ProductCard = styled.div<{ $isActive?: boolean }>`
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
-  height: 460px;
+  height: 500px; /* Увеличено с 480px до 500px для полного размещения текста */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1359,7 +1359,7 @@ export const ProductCard = styled.div<{ $isActive?: boolean }>`
   }
   
   @media (max-width: 768px) {
-    height: 450px;
+    height: 490px; /* Увеличено с 470px до 490px */
     border-radius: 16px;
     
     &::before {
@@ -1372,7 +1372,7 @@ export const ProductCard = styled.div<{ $isActive?: boolean }>`
   }
   
   @media (max-width: 480px) {
-    height: 420px;
+    height: 460px; /* Увеличено с 440px до 460px */
     border-radius: 14px;
     
     &::before {
@@ -1389,6 +1389,7 @@ export const ProductImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
+  object-position: 40% center; /* Смещаем изображение вправо для лучшего баланса */
   transition: all 0.3s ease;
   
   ${ProductCard}:hover & {
@@ -1405,90 +1406,94 @@ export const ProductImage = styled.img`
 `;
 
 export const ProductInfo = styled.div`
-  padding: 16px 20px;
+  padding: 20px 24px 22px 24px; /* Увеличены боковые отступы для большего пространства */
   display: flex;
   flex-direction: column;
   flex: 1;
   height: 100%;
-  gap: 12px;
+  justify-content: space-between; /* Равномерное распределение контента */
+  gap: 14px;
   
   @media (max-width: 768px) {
-    padding: 14px 16px;
-    gap: 10px;
+    padding: 18px 20px 20px 20px;
+    gap: 12px;
   }
   
   @media (max-width: 480px) {
-    padding: 12px;
-    gap: 8px;
+    padding: 16px 16px 18px 16px;
+    gap: 10px;
   }
 `;
 
 export const ProductContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px; /* Увеличен gap для лучшего spacing */
   flex: 1;
+  min-height: 0; /* Позволяет flex-item сжиматься */
   
   @media (max-width: 480px) {
-    gap: 6px;
+    gap: 8px;
   }
 `;
 
 export const ProductTitle = styled.h3`
-  font-size: 1.2rem;
-  margin: 0 0 8px 0;
+  font-size: 1.25rem; /* Увеличен размер шрифта */
+  margin: 0 0 10px 0; /* Увеличен margin-bottom */
   color: var(--minimal-text-primary);
   font-weight: 600;
   line-height: 1.3;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    margin: 0 0 6px 0;
+    font-size: 1.15rem;
+    margin: 0 0 8px 0;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
-    margin: 0 0 4px 0;
+    font-size: 1.05rem;
+    margin: 0 0 6px 0;
   }
 `;
 
 export const ProductPrice = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Увеличен размер шрифта */
   font-weight: 700;
   color: var(--minimal-primary);
-  margin-bottom: 8px;
+  margin-bottom: 12px; /* Увеличен margin для лучшего spacing */
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
-    margin-bottom: 4px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 `;
 
 export const ProductDescription = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* Увеличен размер шрифта */
   color: var(--minimal-text-secondary);
-  margin: 0;
+  margin: 0 0 auto 0; /* margin-bottom: auto для равномерного spacing */
   line-height: 1.5;
   font-weight: 400;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; /* Показываем до 3 строк */
   -webkit-box-orient: vertical;
+  flex: 1; /* Занимает доступное пространство */
   
   @media (max-width: 768px) {
-    font-size: 0.85rem;
-    -webkit-line-clamp: 2;
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3; /* Увеличено с 2 до 3 строк */
+    line-height: 1.4;
   }
   
   @media (max-width: 480px) {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.4;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3; /* Увеличено с 2 до 3 строк */
   }
 `;
 
@@ -1685,26 +1690,28 @@ export const ProductButton = styled.button`
   background: var(--minimal-primary);
   border: 2px solid var(--minimal-primary);
   color: var(--minimal-white);
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 12px 24px; /* Увеличены отступы для более солидного вида */
+  border-radius: 10px; /* Увеличен border-radius */
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem; /* Увеличен размер шрифта */
   cursor: pointer;
   transition: all 0.3s ease;
-  min-height: 40px;
+  min-height: 44px; /* Увеличена минимальная высота */
+  height: 44px; /* Фиксированная высота для всех кнопок */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   text-decoration: none;
+  margin-top: auto; /* Прижимает кнопку к низу */
   
   &:hover {
     background: var(--minimal-white);
     color: var(--minimal-primary);
     border-color: var(--minimal-primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
   }
   
   &:active {
@@ -1712,15 +1719,17 @@ export const ProductButton = styled.button`
   }
   
   @media (max-width: 768px) {
-    padding: 8px 16px;
-    font-size: 0.8rem;
-    min-height: 36px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    min-height: 40px;
+    height: 40px;
   }
   
   @media (max-width: 480px) {
-    padding: 6px 14px;
-    font-size: 0.75rem;
-    min-height: 32px;
+    padding: 8px 16px; /* Увеличены отступы для мобильной версии */
+    font-size: 0.8rem; /* Увеличен размер шрифта */
+    min-height: 36px;
+    height: 36px; /* Фиксированная высота для мобильной версии */
   }
 `;
 
