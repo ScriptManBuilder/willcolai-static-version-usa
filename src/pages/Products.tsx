@@ -40,20 +40,14 @@ const Products: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Мемоизируем категории
+  // Мемоизируем категории (синхронизировано с ProductsDropdown.tsx)
   const categories = useMemo(() => [
     { id: 'all', name: 'All Courses' },
     { id: 'AI Basics', name: 'AI Basics' },
-    { id: 'Content Creation', name: 'Content' },
-    { id: 'Business Automation', name: 'Business' },
-    { id: 'Advanced AI', name: 'Advanced' },
-    { id: 'AI Marketing', name: 'Marketing' },
-    { id: 'Data & Analytics', name: 'Analytics' },
-    { id: 'Productivity Mastery', name: 'Productivity' },
-    { id: 'Creative AI', name: 'Creative' },
-    { id: 'AI Consulting', name: 'Consulting' },
-    { id: 'Enterprise AI', name: 'Enterprise' },
-    { id: 'AI Mastery', name: 'Mastery' }
+    { id: 'Prompt Engineering', name: 'Prompt Engineering' },
+    { id: 'Content Creation', name: 'Content Creation' },
+    { id: 'AI Chatbots', name: 'AI Chatbots' },
+    { id: 'Document Processing', name: 'Document Processing' }
   ], []);
 
   // Мемоизируем фильтрацию продуктов

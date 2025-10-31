@@ -37,19 +37,13 @@ const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
 }) => {
   const { formatPrice } = usePrice();
   
-  // AI курсы категории для навигации (синхронизировано с Products.tsx)
+  // AI курсы категории для навигации (только самые важные - 5 категорий)
   const categories = [
-    { id: 'AI Basics', name: 'Beginner Courses', icon: '🎯', description: 'Start your AI journey' },
-    { id: 'Content Creation', name: 'Content Creation', icon: '✨', description: 'Creative AI tools' },
-    { id: 'Business Automation', name: 'Business Automation', icon: '⚡', description: 'Streamline workflows' },
-    { id: 'Advanced AI', name: 'Advanced', icon: '🚀', description: 'Master complex topics' },
-    { id: 'AI Marketing', name: 'AI Marketing', icon: '📈', description: 'Marketing intelligence' },
-    { id: 'Data & Analytics', name: 'Data & Analytics', icon: '📊', description: 'Data insights' },
-    { id: 'Productivity Mastery', name: 'Productivity', icon: '⏰', description: 'Efficiency tools' },
-    { id: 'Creative AI', name: 'Creative AI', icon: '🎨', description: 'Creative innovation' },
-    { id: 'AI Consulting', name: 'Consulting', icon: '�', description: 'Professional services' },
-    { id: 'Enterprise AI', name: 'Enterprise', icon: '🏢', description: 'Large-scale solutions' },
-    { id: 'AI Mastery', name: 'AI Mastery', icon: '🎓', description: 'Complete mastery' }
+    { id: 'AI Basics', name: 'AI Basics', icon: '🎯', description: 'Start your AI journey' },
+    { id: 'Prompt Engineering', name: 'Prompt Engineering', icon: '✨', description: 'Master AI prompting' },
+    { id: 'Content Creation', name: 'Content Creation', icon: '🎨', description: 'Creative AI tools' },
+    { id: 'AI Chatbots', name: 'AI Chatbots', icon: '🤖', description: 'Build smart chatbots' },
+    { id: 'Document Processing', name: 'Document Processing', icon: '📄', description: 'Process documents with AI' }
   ];
   
   // Показываем только 3 товара для компактности
