@@ -90,69 +90,69 @@ const Account: React.FC = () => {
     };
   }, [activeTab]);
 
-  // Данные курсов для тестового аккаунта
+  // Данные курсов для тестового аккаунта (обновлено с новыми ценами и курсами)
   const testAccountCourses = [
     {
       id: 1,
       title: "Essential ChatGPT Basics",
       description: "Learn the fundamental concepts and basic usage of ChatGPT for beginners.",
-      price: "$6.99",
+      price: "$1.00",
       videos: ["/videos/Essential ChatGPT Basics1.mp4"]
     },
     {
       id: 2,
       title: "AI Personas & Roles – Designing Smarter Chatbots",
       description: "Create custom AI personas and design role-based chatbots for better interactions.",
-      price: "$9.99",
+      price: "$1.95",
       videos: ["/videos/AI Personas & Roles – Designing Smarter Chatbots2.mp4"]
     },
     {
       id: 3,
       title: "AI-Powered Document Summaries with ChatGPT",
       description: "Transform long documents into clear, concise summaries using ChatGPT.",
-      price: "$19.99",
+      price: "$6.99",
       videos: ["/videos/AI-Powered Document Summaries with ChatGPT3.mp4"]
     },
     {
       id: 4,
       title: "Prompt Optimization Shortcuts for ChatGPT",
       description: "Learn practical shortcuts to optimize prompts for better ChatGPT responses.",
-      price: "$29.99",
+      price: "$9.99",
       videos: ["/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"]
     },
     {
       id: 5,
       title: "YouTube Video Summaries with AI",
       description: "Create quick summaries of YouTube videos using AI to save time.",
-      price: "$39.99",
+      price: "$19.99",
       videos: ["/videos/YouTube Video Summaries with AI5.mp4"]
     },
     {
       id: 6,
       title: "Essential Prompting Tips & Techniques",
       description: "Master essential tips and techniques for effective AI prompting.",
-      price: "$49.99",
+      price: "$29.99",
       videos: ["/videos/Essential Prompting Tips & Techniques6.mp4"]
     },
     {
       id: 7,
       title: "Reset & Refine – Fixing Stuck AI Conversations",
       description: "Fix stuck AI conversations and guide responses back on track.",
-      price: "$59.99",
+      price: "$39.99",
       videos: ["/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"]
     },
     {
       id: 8,
       title: "The B.R.A.I.N. Framework for AI Mastery",
       description: "Master the B.R.A.I.N. framework for structured AI task management.",
-      price: "$69.99",
+      price: "$49.99",
       videos: ["/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4"]
     },
     {
       id: 9,
       title: "Creating Animated GIFs with AI Tools",
       description: "Step-by-step process to design engaging animated GIFs for content and social media.",
-      price: "$79.99",
+      price: "$59.99",
       videos: [
         "/videos/Creating Animated GIFs with AI Tools8.mp4",
         "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"
@@ -162,7 +162,7 @@ const Account: React.FC = () => {
       id: 10,
       title: "Image Enhancement – Upscaling & PNG Conversion",
       description: "Transform visuals with AI: upscale images and convert them into high-quality PNGs.",
-      price: "$89.99",
+      price: "$69.99",
       videos: [
         "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
         "/videos/Essential ChatGPT Basics1.mp4",
@@ -173,12 +173,88 @@ const Account: React.FC = () => {
       id: 11,
       title: "Advanced Prompt Engineering – Pro Tips & Strategies",
       description: "Deep dive into advanced prompting techniques to unlock AI's full potential.",
-      price: "$99.99",
+      price: "$79.99",
       videos: [
         "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
         "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
         "/videos/Essential Prompting Tips & Techniques6.mp4",
         "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      ]
+    },
+    {
+      id: 12,
+      title: "AI Content Marketing Strategies",
+      description: "Master AI-powered content marketing techniques to grow your audience and boost engagement.",
+      price: "$89.99",
+      videos: [
+        "/videos/Creating Animated GIFs with AI Tools8.mp4",
+        "/videos/Essential ChatGPT Basics1.mp4",
+        "/videos/YouTube Video Summaries with AI5.mp4",
+        "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      ]
+    },
+    {
+      id: 13,
+      title: "AI-Powered Data Analysis & Visualization",
+      description: "Transform raw data into actionable insights using AI-powered analysis and visualization tools.",
+      price: "$99.99",
+      videos: [
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4",
+        "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+        "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
+        "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      ]
+    },
+    {
+      id: 14,
+      title: "AI Automation Mastery – Workflow Optimization",
+      description: "Automate repetitive tasks and optimize workflows with advanced AI automation techniques.",
+      price: "$109.00",
+      videos: [
+        "/videos/Creating Animated GIFs with AI Tools8.mp4",
+        "/videos/Essential Prompting Tips & Techniques6.mp4",
+        "/videos/YouTube Video Summaries with AI5.mp4",
+        "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4",
+        "/videos/Essential ChatGPT Basics1.mp4"
+      ]
+    },
+    {
+      id: 15,
+      title: "Professional AI Consulting & Implementation",
+      description: "Learn to implement AI solutions professionally for businesses and provide expert consulting services.",
+      price: "$119.00",
+      videos: [
+        "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+        "/videos/Essential Prompting Tips & Techniques6.mp4",
+        "/videos/Creating Animated GIFs with AI Tools8.mp4",
+        "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4"
+      ]
+    },
+    {
+      id: 16,
+      title: "AI-Driven Business Intelligence & Analytics",
+      description: "Master business intelligence with AI to make data-driven decisions and drive strategic growth.",
+      price: "$129.00",
+      videos: [
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4",
+        "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+        "/videos/Essential Prompting Tips & Techniques6.mp4",
+        "/videos/YouTube Video Summaries with AI5.mp4",
+        "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      ]
+    },
+    {
+      id: 17,
+      title: "Complete AI Transformation Program – Enterprise Edition",
+      description: "The ultimate AI transformation program for organizations seeking complete digital transformation.",
+      price: "$139.00",
+      videos: [
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+        "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+        "/videos/Essential Prompting Tips & Techniques6.mp4",
+        "/videos/Creating Animated GIFs with AI Tools8.mp4",
+        "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4"
       ]
     }
   ];
@@ -302,7 +378,7 @@ const Account: React.FC = () => {
               <div className="label">Total Courses</div>
             </ProgressStat>
             <ProgressStat>
-              <div className="number">16</div>
+              <div className="number">8</div>
               <div className="label">Hours of Content</div>
             </ProgressStat>
             <ProgressStat>

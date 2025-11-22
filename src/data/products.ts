@@ -55,6 +55,24 @@ export const getProductImage = (productId: number, imageIndex: number = 1): stri
   if (productId === 11) {
     return "/images/preview_course_11.png";
   }
+  if (productId === 12) {
+    return "/images/extra-cover.jpg";
+  }
+  if (productId === 13) {
+    return "/images/extra-cover.jpg";
+  }
+  if (productId === 14) {
+    return "/images/extra-cover.jpg";
+  }
+  if (productId === 15) {
+    return "/images/extra-cover.jpg";
+  }
+  if (productId === 16) {
+    return "/images/extra-cover.jpg";
+  }
+  if (productId === 17) {
+    return "/images/extra-cover.jpg";
+  }
   
   // For other courses, return placeholder
   return `https://via.placeholder.com/400x300/667eea/ffffff?text=AI+Course+${productId}`;
@@ -95,6 +113,24 @@ export const getProductImages = (productId: number): string[] => {
   if (productId === 11) {
     return ["/images/preview_course_11.png"];
   }
+  if (productId === 12) {
+    return ["/images/extra-cover.jpg"];
+  }
+  if (productId === 13) {
+    return ["/images/extra-cover.jpg"];
+  }
+  if (productId === 14) {
+    return ["/images/extra-cover.jpg"];
+  }
+  if (productId === 15) {
+    return ["/images/extra-cover.jpg"];
+  }
+  if (productId === 16) {
+    return ["/images/extra-cover.jpg"];
+  }
+  if (productId === 17) {
+    return ["/images/extra-cover.jpg"];
+  }
   return [getProductImage(productId)];
 };
 
@@ -133,6 +169,24 @@ export const getProductVideo = (productId: number): string | undefined => {
   if (productId === 11) {
     return "/videos/video_preview_11.mp4";
   }
+  if (productId === 12) {
+    return "/videos/Creating Animated GIFs with AI Tools8.mp4";
+  }
+  if (productId === 13) {
+    return "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4";
+  }
+  if (productId === 14) {
+    return "/videos/Creating Animated GIFs with AI Tools8.mp4";
+  }
+  if (productId === 15) {
+    return "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4";
+  }
+  if (productId === 16) {
+    return "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4";
+  }
+  if (productId === 17) {
+    return "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4";
+  }
   return undefined;
 };
 
@@ -165,6 +219,70 @@ export const getProductVideos = (productId: number): string[] | undefined => {
     ];
   }
   
+  // Courses $89.99 - 4 videos
+  if (productId === 12) {
+    return [
+      "/videos/Creating Animated GIFs with AI Tools8.mp4",
+      "/videos/Essential ChatGPT Basics1.mp4",
+      "/videos/YouTube Video Summaries with AI5.mp4",
+      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+    ];
+  }
+  
+  // Courses $99.99 - 4 videos
+  if (productId === 13) {
+    return [
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4",
+      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+      "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
+      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+    ];
+  }
+  
+  // Courses $109 - 5 videos
+  if (productId === 14) {
+    return [
+      "/videos/Creating Animated GIFs with AI Tools8.mp4",
+      "/videos/Essential Prompting Tips & Techniques6.mp4",
+      "/videos/YouTube Video Summaries with AI5.mp4",
+      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4",
+      "/videos/Essential ChatGPT Basics1.mp4"
+    ];
+  }
+  
+  // Courses $119 - 5 videos
+  if (productId === 15) {
+    return [
+      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+      "/videos/Essential Prompting Tips & Techniques6.mp4",
+      "/videos/Creating Animated GIFs with AI Tools8.mp4",
+      "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4"
+    ];
+  }
+  
+  // Courses $129 - 5 videos
+  if (productId === 16) {
+    return [
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4",
+      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+      "/videos/Essential Prompting Tips & Techniques6.mp4",
+      "/videos/YouTube Video Summaries with AI5.mp4",
+      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+    ];
+  }
+  
+  // Courses $139 - 5 videos
+  if (productId === 17) {
+    return [
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+      "/videos/Essential Prompting Tips & Techniques6.mp4",
+      "/videos/Creating Animated GIFs with AI Tools8.mp4",
+      "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4"
+    ];
+  }
+  
   return undefined;
 };
 
@@ -172,7 +290,7 @@ export const products: Product[] = [
   {
     id: 1,
     name: "Essential ChatGPT Basics",
-    price: 6.99,
+    price: 1.00,
     image: getProductImage(1),
     images: getProductImages(1),
     video: getProductVideo(1),
@@ -199,7 +317,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "AI Personas & Roles – Designing Smarter Chatbots",
-    price: 9.99,
+    price: 1.95,
     image: getProductImage(2),
     images: getProductImages(2),
     video: getProductVideo(2),
@@ -226,7 +344,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "AI-Powered Document Summaries with ChatGPT",
-    price: 19.99,
+    price: 6.99,
     image: getProductImage(3),
     images: getProductImages(3),
     video: getProductVideo(3),
@@ -253,7 +371,7 @@ export const products: Product[] = [
   {
     id: 4,
     name: "Prompt Optimization Shortcuts for ChatGPT",
-    price: 29.99,
+    price: 9.99,
     image: getProductImage(4),
     images: getProductImages(4),
     video: getProductVideo(4),
@@ -280,7 +398,7 @@ export const products: Product[] = [
   {
     id: 5,
     name: "YouTube Video Summaries with AI",
-    price: 39.99,
+    price: 19.99,
     image: getProductImage(5),
     images: getProductImages(5),
     video: getProductVideo(5),
@@ -307,7 +425,7 @@ export const products: Product[] = [
   {
     id: 6,
     name: "Essential Prompting Tips & Techniques",
-    price: 49.99,
+    price: 29.99,
     image: getProductImage(6),
     images: getProductImages(6),
     video: getProductVideo(6),
@@ -334,7 +452,7 @@ export const products: Product[] = [
   {
     id: 7,
     name: "Reset & Refine – Fixing Stuck AI Conversations",
-    price: 59.99,
+    price: 39.99,
     image: getProductImage(7),
     images: getProductImages(7),
     video: getProductVideo(7),
@@ -361,7 +479,7 @@ export const products: Product[] = [
   {
     id: 8,
     name: "The B.R.A.I.N. Framework for AI Mastery",
-    price: 69.99,
+    price: 49.99,
     image: getProductImage(8),
     images: getProductImages(8),
     video: getProductVideo(8),
@@ -388,7 +506,7 @@ export const products: Product[] = [
   {
     id: 9,
     name: "Creating Animated GIFs with AI Tools",
-    price: 79.99,
+    price: 59.99,
     image: getProductImage(9),
     images: getProductImages(9),
     video: getProductVideo(9),
@@ -418,7 +536,7 @@ export const products: Product[] = [
   {
     id: 10,
     name: "Image Enhancement – Upscaling & PNG Conversion",
-    price: 89.99,
+    price: 69.99,
     image: getProductImage(10),
     images: getProductImages(10),
     video: getProductVideo(10),
@@ -448,7 +566,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Advanced Prompt Engineering – Pro Tips & Strategies",
-    price: 99.99,
+    price: 79.99,
     image: getProductImage(11),
     images: getProductImages(11),
     video: getProductVideo(11),
@@ -472,6 +590,187 @@ export const products: Product[] = [
       "Templates": "50 advanced prompts",
       "Access": "18 months",
       "Bonus": "Professional toolkit"
+    },
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "AI Content Marketing Strategies",
+    price: 89.99,
+    image: getProductImage(12),
+    images: getProductImages(12),
+    video: getProductVideo(12),
+    videos: getProductVideos(12),
+    description: "Master AI-powered content marketing techniques to grow your audience and boost engagement.",
+    detailedDescription: "Learn comprehensive AI-driven marketing strategies that transform your content creation and distribution. This premium course includes 4 video modules covering content planning, audience targeting, SEO optimization, and performance analytics using cutting-edge AI tools.",
+    category: "Content Creation",
+    features: [
+      "4 comprehensive video modules",
+      "10 hours of marketing training",
+      "40 content templates",
+      "SEO optimization guides",
+      "Audience targeting methods",
+      "Performance tracking"
+    ],
+    specifications: {
+      "Duration": "10 hours",
+      "Videos": "4 comprehensive modules",
+      "Level": "Intermediate",
+      "Templates": "40 marketing prompts",
+      "Tools": "AI marketing platforms",
+      "Access": "12 months",
+      "Bonus": "Marketing toolkit"
+    },
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "AI-Powered Data Analysis & Visualization",
+    price: 99.99,
+    image: getProductImage(13),
+    images: getProductImages(13),
+    video: getProductVideo(13),
+    videos: getProductVideos(13),
+    description: "Transform raw data into actionable insights using AI-powered analysis and visualization tools.",
+    detailedDescription: "Master the art of data analysis with AI assistance. This comprehensive course includes 4 video modules teaching you to analyze complex datasets, create stunning visualizations, and extract meaningful insights using AI-powered tools and techniques.",
+    category: "AI Basics",
+    features: [
+      "4 comprehensive video modules",
+      "14 hours of technical training",
+      "Data analysis frameworks",
+      "Visualization techniques",
+      "AI tool integration",
+      "Real-world case studies"
+    ],
+    specifications: {
+      "Duration": "14 hours",
+      "Videos": "4 comprehensive modules",
+      "Level": "Intermediate",
+      "Tools": "AI data platforms",
+      "Projects": "10 practical examples",
+      "Access": "15 months",
+      "Bonus": "Dataset library"
+    },
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "AI Automation Mastery – Workflow Optimization",
+    price: 109.00,
+    image: getProductImage(14),
+    images: getProductImages(14),
+    video: getProductVideo(14),
+    videos: getProductVideos(14),
+    description: "Automate repetitive tasks and optimize workflows with advanced AI automation techniques.",
+    detailedDescription: "Unlock productivity gains through intelligent automation. This premium course includes 5 video modules covering workflow analysis, automation design, integration strategies, and monitoring systems to help you save time and reduce manual work.",
+    category: "Prompt Engineering",
+    features: [
+      "5 comprehensive video modules",
+      "16 hours of automation training",
+      "50 automation templates",
+      "Workflow optimization guides",
+      "Integration tutorials",
+      "Monitoring dashboards"
+    ],
+    specifications: {
+      "Duration": "16 hours",
+      "Videos": "5 comprehensive modules",
+      "Level": "Advanced",
+      "Templates": "50 automation workflows",
+      "Integrations": "Multiple platforms",
+      "Access": "18 months",
+      "Bonus": "Automation toolkit"
+    },
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "Professional AI Consulting & Implementation",
+    price: 119.00,
+    image: getProductImage(15),
+    images: getProductImages(15),
+    video: getProductVideo(15),
+    videos: getProductVideos(15),
+    description: "Learn to implement AI solutions professionally for businesses and provide expert consulting services.",
+    detailedDescription: "Become an AI consultant with this comprehensive professional training. Includes 5 video modules covering client assessment, solution design, implementation strategies, change management, and ongoing support for enterprise AI projects.",
+    category: "AI Chatbots",
+    features: [
+      "5 comprehensive video modules",
+      "20 hours of professional training",
+      "Consulting frameworks",
+      "Implementation guides",
+      "Client management tools",
+      "Case study analysis"
+    ],
+    specifications: {
+      "Duration": "20 hours",
+      "Videos": "5 comprehensive modules",
+      "Level": "Expert",
+      "Frameworks": "Enterprise consulting",
+      "Resources": "Professional toolkit",
+      "Access": "24 months",
+      "Bonus": "Certification preparation"
+    },
+    inStock: true
+  },
+  {
+    id: 16,
+    name: "AI-Driven Business Intelligence & Analytics",
+    price: 129.00,
+    image: getProductImage(16),
+    images: getProductImages(16),
+    video: getProductVideo(16),
+    videos: getProductVideos(16),
+    description: "Master business intelligence with AI to make data-driven decisions and drive strategic growth.",
+    detailedDescription: "Transform your business intelligence capabilities with AI-powered analytics. This enterprise-level course includes 5 video modules covering advanced analytics, predictive modeling, dashboard creation, and strategic decision-making frameworks.",
+    category: "Document Processing",
+    features: [
+      "5 comprehensive video modules",
+      "24 hours of BI training",
+      "Advanced analytics methods",
+      "Predictive modeling",
+      "Dashboard design",
+      "Strategic frameworks"
+    ],
+    specifications: {
+      "Duration": "24 hours",
+      "Videos": "5 comprehensive modules",
+      "Level": "Expert",
+      "Methods": "Advanced BI techniques",
+      "Tools": "Enterprise platforms",
+      "Access": "24 months",
+      "Bonus": "Executive dashboard templates"
+    },
+    inStock: true
+  },
+  {
+    id: 17,
+    name: "Complete AI Transformation Program – Enterprise Edition",
+    price: 139.00,
+    image: getProductImage(17),
+    images: getProductImages(17),
+    video: getProductVideo(17),
+    videos: getProductVideos(17),
+    description: "The ultimate AI transformation program for organizations seeking complete digital transformation.",
+    detailedDescription: "The most comprehensive AI course available. Includes 5 video modules covering every aspect of enterprise AI transformation: strategy, implementation, change management, security, and continuous improvement. Designed for executives, managers, and transformation leaders.",
+    category: "Prompt Engineering",
+    features: [
+      "5 comprehensive video modules",
+      "30+ hours of transformation training",
+      "100+ enterprise templates",
+      "Strategic planning frameworks",
+      "Implementation roadmaps",
+      "Executive dashboards"
+    ],
+    specifications: {
+      "Duration": "30+ hours",
+      "Videos": "5 comprehensive modules",
+      "Level": "Enterprise/Executive",
+      "Frameworks": "Complete transformation",
+      "Templates": "100+ resources",
+      "Access": "36 months (3 years)",
+      "Support": "Priority consultation access",
+      "Bonus": "Executive certification"
     },
     inStock: true
   }
