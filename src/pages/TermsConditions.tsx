@@ -61,7 +61,7 @@ const TermsConditions: React.FC = () => {
         <Paragraph>
           Director: Shannon Williams<br/>
           Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014<br/>
+          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States
         </Paragraph>
       </Section>
@@ -176,7 +176,7 @@ const TermsConditions: React.FC = () => {
           <strong>The Williams Collection Inc.</strong><br />
           Director: Shannon Williams<br />
           5830 E 2ND ST, Casper, WY 82609, United States<br />
-          Phone: +1 (445) 285-6014<br />
+          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}<br />
           Email: support@willcol-ai.com<br />
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>

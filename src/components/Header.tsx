@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 
   const handlePhoneClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const phone = '+14452856014';
+    const phone = process.env.REACT_APP_COMPANY_PHONE || '+18632228933';
     
     // Просто пытаемся позвонить/открыть приложение для звонков
     window.location.href = `tel:${phone}`;
@@ -186,11 +186,11 @@ const Header: React.FC = () => {
             <ContactItem>
               <PhoneIcon size={14} />
               <a 
-                href="tel:+14452856014" 
+                href={`tel:${process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}`}
                 onClick={handlePhoneClick}
                 style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}
               >
-                +1 (445) 285-6014
+                {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}
               </a>
             </ContactItem>
           </ContactInfo>

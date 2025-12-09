@@ -261,7 +261,7 @@ const PrivacyPolicy: React.FC = () => {
           5830 E 2ND ST<br/>
           Casper, WY 82609, United States<br/>
           Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014
+          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}
         </Paragraph>
       </Section>
     </Container>

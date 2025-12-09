@@ -99,8 +99,8 @@ const Support: React.FC = () => {
                 <ContactContent>
                   <ContactTitle>Phone Support</ContactTitle>
                   <ContactInfo>Monday - Friday, 9 AM - 6 PM MST</ContactInfo>
-                  <ContactLink href="tel:+14452856014">
-                    +14452856014
+                  <ContactLink href={`tel:${process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}`}>
+                    {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}
                   </ContactLink>
                 </ContactContent>
               </ContactCard>
