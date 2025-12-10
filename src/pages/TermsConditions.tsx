@@ -77,6 +77,18 @@ const TermsConditions: React.FC = () => {
       <Section>
         <SectionTitle>4. Payment and Billing</SectionTitle>
         <Paragraph>
+          <strong>One-Time Purchase</strong><br/>
+          Unless otherwise explicitly stated at the time of purchase, all Products and Services offered through this Website are sold on a one-time purchase basis. By placing an order, you agree that payment is final and no future automatic or recurring charges will be applied.
+        </Paragraph>
+        <Paragraph>
+          <strong>Payment Timing and Methods</strong><br/>
+          Payment is required at the time you place your order (i.e. before any access, download or delivery). We accept the payment methods displayed on the checkout page.
+        </Paragraph>
+        <Paragraph>
+          <strong>No Subscription or Renewal by Default</strong><br/>
+          This purchase does not constitute a subscription. You will not be enrolled in any ongoing payment plan, and there is no automatic renewal. If you wish to make additional purchases, you will need to place a new order.
+        </Paragraph>
+        <Paragraph>
           We accept major credit and debit cards for AI course purchases. Your payment information is processed securely through our payment processors using 256-bit SSL encryption.
         </Paragraph>
         <Paragraph>

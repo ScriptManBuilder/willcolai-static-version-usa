@@ -1004,6 +1004,11 @@ const Checkout: React.FC = () => {
 
             <FormSection>
               <SectionTitle>Payment Information</SectionTitle>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: '500' }}>We accept:</span>
+                <img src="/images/visa.svg" alt="Visa" style={{ height: '28px' }} />
+                <img src="/images/mastercard.svg" alt="Mastercard" style={{ height: '28px' }} />
+              </div>
               <FormGroup>
                 <Label htmlFor="cardNumber">Card Number *</Label>
                 <Input
