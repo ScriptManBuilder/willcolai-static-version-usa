@@ -45,7 +45,7 @@ const ReturnPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          The Williams Collection Inc. understands that digital products require different return considerations than physical items. 
+          WC understands that digital products require different return considerations than physical items. 
           This policy explains our approach to AI course returns and refunds for digital educational content.
         </Paragraph>
       </Section>
@@ -165,12 +165,13 @@ const ReturnPolicy: React.FC = () => {
         <Paragraph>
           For refund requests or questions about this policy:
         </Paragraph>
+        <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+          <img 
+            src="/company_info.png"                
+            style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
-          Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}<br/>
-          Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>
         <Paragraph>

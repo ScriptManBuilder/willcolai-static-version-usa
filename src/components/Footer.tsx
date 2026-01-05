@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
 
         <FooterBottom>
           <Copyright>
-            Copyright  2025 The Williams Collection Inc. All rights reserved. | Premium AI Education & Training Courses
+            Copyright  2025. All rights reserved. | Premium AI Education & Training Courses
           </Copyright>
         </FooterBottom>
       </FooterContent>

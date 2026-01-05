@@ -45,7 +45,7 @@ const RefundPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          At The Williams Collection Inc., we stand behind the quality of our AI courses and want you to be satisfied with your learning experience. 
+          At WC, we stand behind the quality of our AI courses and want you to be satisfied with your learning experience. 
           This refund policy outlines the terms and conditions for refunds on our digital AI course purchases.
         </Paragraph>
       </Section>
@@ -110,7 +110,7 @@ const RefundPolicy: React.FC = () => {
         <SectionTitle>5. Refund Processing and Timeline</SectionTitle>
         <Paragraph>
           Approved refunds will be processed to your original payment method within 5-10 business days. 
-          You will see "WILLIAMS AI COURSES" or "WILLCOL-AI.COM" as the refund descriptor on your statement.
+          You will see "WS or WMS" as the refund descriptor on your statement.
         </Paragraph>
         <Paragraph>
           Processing times may vary depending on your bank or credit card company. International customers 
@@ -138,9 +138,11 @@ const RefundPolicy: React.FC = () => {
         <Paragraph>
           All refunds will be issued in the form of payment in which they were made. Please allow 5–7 business days for processing and for the refund to be credited to your account.
         </Paragraph>
-        <Paragraph>
-          If you have any questions or concerns we are happy to assist you through email: support@willcol-ai.com
-        </Paragraph>
+        {/* <Paragraph>
+          If you have any questions or concerns 
+          we are happy to assist you through email: support@willcol-ai.com
+
+        </Paragraph> */}
         <Paragraph>
           Refund requests must be made within thirty (30) days of your purchase date.
         </Paragraph>
@@ -185,12 +187,13 @@ const RefundPolicy: React.FC = () => {
         <Paragraph>
           For refund requests or questions about this policy, please contact us:
         </Paragraph>
+        <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+          <img 
+            src="/company_info.png"                
+            style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
-          Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}<br/>
-          Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>
         <Paragraph>

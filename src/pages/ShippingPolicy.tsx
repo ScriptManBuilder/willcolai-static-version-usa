@@ -45,7 +45,7 @@ const ShippingPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          The Williams Collection Inc. delivers AI courses digitally through our secure online learning platform. 
+          WC delivers AI courses digitally through our secure online learning platform. 
           This policy explains how your courses are delivered and accessed after purchase.
         </Paragraph>
       </Section>
@@ -186,12 +186,13 @@ const ShippingPolicy: React.FC = () => {
         <Paragraph>
           For course delivery issues or technical support:
         </Paragraph>
+        <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+          <img 
+            src="/company_info.png"                
+            style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
-          Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: {process.env.REACT_APP_COMPANY_PHONE || '+18632228933'}<br/>
-          Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>
         <Paragraph>
